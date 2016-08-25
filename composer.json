@@ -1,0 +1,16 @@
+{
+  "name": "oceanapplications/postmen",
+  "description": "API Wrapper for postmen.com",
+  "keywords": ["postmen", "shippingx"],
+  "authors": [
+    {
+      "name": "Ocean Applications",
+      "email": "oceanapplications@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4" : {
+      "OceanApplications\\Postmen\\" : "src/"
+    }
+  }
+}
