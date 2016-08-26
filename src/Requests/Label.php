@@ -19,6 +19,10 @@ class Label extends Model
     private $return_shipment = false;
     private $ship_date;
     private $service_options = array();
+    private $invoice;
+    private $references;
+    private $billing;
+    private $customs;
 
     public function __construct()
     {
