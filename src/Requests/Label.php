@@ -25,47 +25,6 @@ class Label extends Model
         $this->ship_date = date('Y-m-d');
     }
 
-    /**
-     * @param bool $value
-     * @return $this
-     */
-    public function async($value = true)
-    {
-        if ($value == true) {
-            $$this->async = true;
-        } else if ($value == false) {
-            $this->async = false;
-        }
-        return $this;
-    }
-
-    /**
-     * @param bool $value
-     * @return $this
-     */
-    public function is_document($value=true)
-    {
-        if ($value == true) {
-            $$this->is_document = true;
-        } else if ($value == false) {
-            $this->is_document = false;
-        }
-        return $this;
-    }
-
-    /**
-     * @param bool $value
-     * @return $this
-     */
-    public function return_shipment($value=true)
-    {
-        if ($value == true) {
-            $$this->return_shipment = true;
-        } else if ($value == false) {
-            $this->return_shipment = false;
-        }
-        return $this;
-    }
 
     /**
      * @param string $size
@@ -88,6 +47,20 @@ class Label extends Model
     }
 
     /**
+     * @param bool $value
+     * @return $this
+     */
+    public function is_document($value=true)
+    {
+        if ($value == true) {
+            $$this->is_document = true;
+        } else if ($value == false) {
+            $this->is_document = false;
+        }
+        return $this;
+    }
+
+    /**
      * @param $id
      * @return $this
      */
@@ -106,6 +79,34 @@ class Label extends Model
     public function shipment(Shipment $shipment)
     {
         $this->shipment = $shipment;
+        return $this;
+    }
+
+    /**
+     * @param bool $value
+     * @return $this
+     */
+    public function async($value = true)
+    {
+        if ($value == true) {
+            $$this->async = true;
+        } else if ($value == false) {
+            $this->async = false;
+        }
+        return $this;
+    }
+
+    /**
+     * @param bool $value
+     * @return $this
+     */
+    public function return_shipment($value=true)
+    {
+        if ($value == true) {
+            $$this->return_shipment = true;
+        } else if ($value == false) {
+            $this->return_shipment = false;
+        }
         return $this;
     }
 
