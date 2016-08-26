@@ -3,10 +3,11 @@
 namespace OceanApplications\Postmen\Requests;
 
 
+use OceanApplications\Postmen\Models\Model;
 use OceanApplications\Postmen\Models\Money;
 use OceanApplications\Postmen\Models\Shipment;
 
-class Label implements \JsonSerializable
+class Label extends Model
 {
 
     private $paper_size = "default";
