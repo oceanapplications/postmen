@@ -1,5 +1,5 @@
 # Postmen
-API wrapper for Postmen.com
+API wrapper for https://www.postmen.com/
 
 ###Install with composer
 
