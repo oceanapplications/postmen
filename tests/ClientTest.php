@@ -9,6 +9,7 @@ use OceanApplications\Postmen\Models\Item;
 use OceanApplications\Postmen\Models\Money;
 use OceanApplications\Postmen\Models\Weight;
 use OceanApplications\Postmen\Models\Dimension;
+use OceanApplications\Postmen\Models\Invoice;
 use PHPUnit\Framework\TestCase;
 
 
@@ -39,10 +40,10 @@ class ClientTest extends TestCase {
         $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item)->description('descr')->weight(new Weight(12, 'lb'));
 
         $fromAddress = new Address();
-        $fromAddress->city('city')->company_name('company_name')->country('USA')->contact_name('c_name')->street1('street1')
+        $fromAddress->city('city')->company_name('company_name')->country('IND')->contact_name('c_name')->street1('street1')
             ->postal_code('10016')->state('NY');
         $toAddress = new Address();
-        $toAddress->city('city')->company_name('company_name')->country('USA')->contact_name('c_name')->street1('street2')
+        $toAddress->city('city')->company_name('company_name')->country('IND')->contact_name('c_name')->street1('street2')
             ->postal_code('10016')->state('NY');
 
         $shipment = new Shipment();
@@ -52,8 +53,8 @@ class ClientTest extends TestCase {
 
 
         $label = new Label();
-        $label->service_type('bluedart_surface')->shipper_account($this->shipper_id)
-            ->shipment($shipment);//->COD(new Money(100, 'USD'));
+        $label->service_type('bluedart_surface')->shipper_account($this->shipper_id, '3777')
+            ->shipment($shipment)->invoice(new Invoice());//->COD(new Money(100, 'USD'));
 
         $response = $client->createLabel($label);
         var_dump($response);

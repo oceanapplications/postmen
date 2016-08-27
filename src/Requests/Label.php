@@ -21,7 +21,7 @@ class Label extends Model
     public $async = false;
     public $return_shipment = false;
     public $ship_date;
-    public $service_options = array();
+    public $service_options = null;
     public $invoice;
     public $references;
     public $billing;
@@ -71,10 +71,16 @@ class Label extends Model
      * @param $id
      * @return $this
      */
-    public function shipper_account($id)
+    public function shipper_account($id, $prepaid_customer_code=null)
     {
         $shipper_account = new \stdClass();
         $shipper_account->id = $id;
+
+        if ($prepaid_customer_code != null) {
+            $credentials = new \stdClass();
+            $credentials->prepaid_customer_code = $prepaid_customer_code;
+            $shipper_account->credentials = $credentials;
+        }
         $this->shipper_account = $shipper_account;
         return $this;
     }
@@ -133,6 +139,9 @@ class Label extends Model
      */
     public function COD(Money $money)
     {
+        if ($this->service_options == null){
+            $this->service_options = array();
+        }
         $option = new \stdClass();
         $option->type = "cod";
         $option->money = $money;
