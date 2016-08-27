@@ -53,7 +53,7 @@ class ClientTest extends TestCase {
 
 
         $label = new Label();
-        $label->service_type('bluedart_surface')->shipper_account($this->shipper_id, '3777')
+        $label->service_type('bluedart_surface')->shipper_account($this->shipper_id)
             ->shipment($shipment)->invoice(new Invoice());//->COD(new Money(100, 'USD'));
 
         $response = $client->createLabel($label);

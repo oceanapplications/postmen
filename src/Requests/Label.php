@@ -71,16 +71,10 @@ class Label extends Model
      * @param $id
      * @return $this
      */
-    public function shipper_account($id, $prepaid_customer_code=null)
+    public function shipper_account($id)
     {
         $shipper_account = new \stdClass();
         $shipper_account->id = $id;
-
-        if ($prepaid_customer_code != null) {
-            $credentials = new \stdClass();
-            $credentials->prepaid_customer_code = $prepaid_customer_code;
-            $shipper_account->credentials = $credentials;
-        }
         $this->shipper_account = $shipper_account;
         return $this;
     }
