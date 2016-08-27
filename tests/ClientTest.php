@@ -35,15 +35,15 @@ class ClientTest extends TestCase {
         $item = new Item();
         $item->description('description')->quantity(1)->price(new Money(100, 'USD'))->weight(new Weight(10,'lb'));
 
-
         $parcel = new Parcel();
-        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item);
-
+        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item)->description('descr')->weight(new Weight(12, 'lb'));
 
         $fromAddress = new Address();
-        $fromAddress->city('city')->company_name('company_name')->country('USA');
+        $fromAddress->city('city')->company_name('company_name')->country('USA')->contact_name('c_name')->street1('street1')
+            ->postal_code('10016')->state('NY');
         $toAddress = new Address();
-        $toAddress->city('city')->company_name('company_name')->country('USA');
+        $toAddress->city('city')->company_name('company_name')->country('USA')->contact_name('c_name')->street1('street2')
+            ->postal_code('10016')->state('NY');
 
         $shipment = new Shipment();
         $shipment->ship_from($fromAddress);
@@ -52,8 +52,8 @@ class ClientTest extends TestCase {
 
 
         $label = new Label();
-        $label->service_type('bluedart_surface')->shipper_account('shipper_account_id')
-            ->shipment($shipment)->COD(new Money(100, 'USD'));
+        $label->service_type('bluedart_surface')->shipper_account($this->shipper_id)
+            ->shipment($shipment);//->COD(new Money(100, 'USD'));
 
         $response = $client->createLabel($label);
         var_dump($response);

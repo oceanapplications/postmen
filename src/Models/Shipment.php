@@ -6,7 +6,7 @@ class Shipment extends Model
 {
     public $ship_from;
     public $ship_to;
-    public $parcel;
+    public $parcels;
 
     public function ship_from(Address $address)
     {
@@ -22,7 +22,7 @@ class Shipment extends Model
 
     public function parcels(array $parcels)
     {
-        $this->parcel = $parcels;
+        $this->parcels = $parcels;
         return $this;
     }
 }
