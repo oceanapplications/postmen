@@ -31,20 +31,20 @@ class ClientTest extends TestCase {
 
     public function testLabel()
     {
-        $client = new Client($this->api_key, true);
+        $client = new Client($this->api_key);
 
         $item = new Item();
-        $item->description('description')->quantity(1)->price(new Money(100, 'USD'))->weight(new Weight(10,'lb'));
+        $item->description('description')->quantity(1)->price(new Money(100, 'INR'))->weight(new Weight(1,'lb'));
 
         $parcel = new Parcel();
-        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item)->description('descr')->weight(new Weight(12, 'lb'));
+        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item)->description('descr')->weight(new Weight(2, 'lb'));
 
         $fromAddress = new Address();
-        $fromAddress->city('city')->company_name('company_name')->country('IND')->contact_name('c_name')->street1('street1')
-            ->postal_code('10016')->state('NY');
+        $fromAddress->city('New Delhi')->company_name('company India')->country('IND')->contact_name('Name')->street1('street1')
+            ->postal_code('110045')->state('Delhi')->phone('9654444444');
         $toAddress = new Address();
-        $toAddress->city('city')->company_name('company_name')->country('IND')->contact_name('c_name')->street1('street2')
-            ->postal_code('10016')->state('NY');
+        $toAddress->city('New Delhi')->company_name('company India')->country('IND')->contact_name('Name')->street1('street1')
+            ->postal_code('110045')->state('Delhi')->phone('9654444444');
 
         $shipment = new Shipment();
         $shipment->ship_from($fromAddress);
@@ -54,11 +54,10 @@ class ClientTest extends TestCase {
 
         $label = new Label();
         $label->service_type('bluedart_surface')->shipper_account($this->shipper_id)
-            ->shipment($shipment)->invoice(new Invoice());//->COD(new Money(100, 'USD'));
+            ->shipment($shipment)->invoice(new Invoice())->COD(new Money(100, 'INR'));
 
         $response = $client->createLabel($label);
-        var_dump($response);
-
+var_dump($response);
         $this->assertTrue(true);
     }
 

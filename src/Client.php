@@ -34,8 +34,6 @@ class Client
         );
         $body = json_encode($data);
 
-        var_dump($body);
-echo "\n";
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => true,

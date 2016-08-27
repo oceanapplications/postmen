@@ -138,7 +138,7 @@ class Label extends Model
         }
         $option = new \stdClass();
         $option->type = "cod";
-        $option->money = $money;
+        $option->cod_value = $money;
         array_push($this->service_options, $option);
         return $this;
     }
