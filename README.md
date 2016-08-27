@@ -1,4 +1,4 @@
-# postmen
+# Postmen
 API wrapper for Postmen.com
 
 ###Install with composer
