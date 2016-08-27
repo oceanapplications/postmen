@@ -5,10 +5,10 @@ namespace OceanApplications\Postmen\Models;
 
 class Invoice extends Model
 {
-    private $date;
-    private $number;
-    private $type;
-    private $number_of_copies = 1;
+    public $date;
+    public $number;
+    public $type;
+    public $number_of_copies = 1;
 
     public function __construct()
     {
@@ -48,10 +48,4 @@ class Invoice extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

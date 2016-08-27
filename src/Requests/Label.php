@@ -3,6 +3,9 @@
 namespace OceanApplications\Postmen\Requests;
 
 
+use OceanApplications\Postmen\Models\Billing;
+use OceanApplications\Postmen\Models\Customs;
+use OceanApplications\Postmen\Models\Invoice;
 use OceanApplications\Postmen\Models\Model;
 use OceanApplications\Postmen\Models\Money;
 use OceanApplications\Postmen\Models\Shipment;
@@ -10,19 +13,19 @@ use OceanApplications\Postmen\Models\Shipment;
 class Label extends Model
 {
 
-    private $paper_size = "default";
-    private $service_type;
-    private $is_document = false;
-    private $shipper_account;
-    private $shipment;
-    private $async = false;
-    private $return_shipment = false;
-    private $ship_date;
-    private $service_options = array();
-    private $invoice;
-    private $references;
-    private $billing;
-    private $customs;
+    public $paper_size = "default";
+    public $service_type;
+    public $is_document = false;
+    public $shipper_account;
+    public $shipment;
+    public $async = false;
+    public $return_shipment = false;
+    public $ship_date;
+    public $service_options = array();
+    public $invoice;
+    public $references;
+    public $billing;
+    public $customs;
 
     public function __construct()
     {
@@ -137,10 +140,36 @@ class Label extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
+    /**
+     * @param Invoice $invoice
+     * @return $this
+     */
+    public function invoice(Invoice $invoice){
+        $this->invoice = $invoice;
+        return $this;
     }
+
+    /**
+     * @param array $references
+     * @return $this
+     */
+    public function references(array $references){
+        $this->references = $references;
+        return $this;
+    }
+
+    public function billing(Billing $billing){
+        $this->billing = $billing;
+        return $this;
+    }
+
+    /**
+     * @param Customs $customs
+     * @return $this
+     */
+    public function customs(Customs $customs){
+        $this->customs = $customs;
+        return $this;
+    }
+    
 }

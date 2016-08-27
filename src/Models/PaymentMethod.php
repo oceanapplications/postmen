@@ -4,10 +4,10 @@ namespace OceanApplications\Postmen\Models;
 
 class PaymentMethod extends Model
 {
-    private $type = "account";
-    private $account_number;
-    private $postal_code;
-    private $country;
+    public $type = "account";
+    public $account_number;
+    public $postal_code;
+    public $country;
 
     /**
      * @param string $value
@@ -43,10 +43,4 @@ class PaymentMethod extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

@@ -2,11 +2,11 @@
 
 namespace OceanApplications\Postmen\Models;
 
-class Shipment implements \JsonSerializable
+class Shipment extends Model
 {
-    private $ship_from;
-    private $ship_to;
-    private $parcel;
+    public $ship_from;
+    public $ship_to;
+    public $parcel;
 
     public function ship_from(Address $address)
     {
@@ -24,12 +24,5 @@ class Shipment implements \JsonSerializable
     {
         $this->parcel = $parcels;
         return $this;
-    }
-
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
     }
 }

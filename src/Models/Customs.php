@@ -5,12 +5,12 @@ namespace OceanApplications\Postmen\Models;
 
 class Customs extends Model
 {
-    private $purpose;
-    private $terms_of_trade;
-    private $eei;
-    private $billing;
-    private $importer_address;
-    private $passport;
+    public $purpose;
+    public $terms_of_trade;
+    public $eei;
+    public $billing;
+    public $importer_address;
+    public $passport;
 
     /**
      * @param $value
@@ -89,10 +89,4 @@ class Customs extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

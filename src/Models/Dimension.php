@@ -5,10 +5,21 @@ namespace OceanApplications\Postmen\Models;
 
 class Dimension extends Model
 {
-    private $width;
-    private $height;
-    private $depth;
-    private $unit;
+    public $width;
+    public $height;
+    public $depth;
+    public $unit;
+
+
+    public function __construct($width=null, $height=null, $depth=null, $unit=null)
+    {
+        if ($width != null && $height != null && $depth != null && $unit != null){
+            $this->width($width);
+            $this->height($height);
+            $this->depth($depth);
+            $this->unit($unit);
+        }
+    }
 
     /**
      * @param $value
@@ -52,10 +63,4 @@ class Dimension extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

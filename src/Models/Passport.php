@@ -4,8 +4,8 @@ namespace OceanApplications\Postmen\Models;
 
 class Passport extends Model
 {
-    private $number;
-    private $issue_date;
+    public $number;
+    public $issue_date;
 
     /**
      * @param string $value

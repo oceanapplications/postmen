@@ -2,17 +2,65 @@
 
 use OceanApplications\Postmen\Client;
 use OceanApplications\Postmen\Requests\Label;
+use OceanApplications\Postmen\Models\Shipment;
+use OceanApplications\Postmen\Models\Address;
+use OceanApplications\Postmen\Models\Parcel;
+use OceanApplications\Postmen\Models\Item;
+use OceanApplications\Postmen\Models\Money;
+use OceanApplications\Postmen\Models\Weight;
+use OceanApplications\Postmen\Models\Dimension;
+use PHPUnit\Framework\TestCase;
 
 
-class ClientTest extends PHPUnit_Framework_TestCase {
+
+class ClientTest extends TestCase {
+
+    //API KEY from postmen.com
+    private $api_key = "";
+    //SHIPPER ID from postmen.com
+    private $shipper_id = "";
+
+    protected function setUp(){
+        $dotEnv = new Dotenv\Dotenv(__DIR__);
+        $dotEnv->load();
+
+        $this->api_key = $_ENV['API_KEY'];
+        $this->shipper_id = $_ENV['SHIPPER_ID'];
+    }
 
     public function testLabel()
     {
-        $label = new Label();
-        $label->service_type('bluedart_surface')->shipper_account('shipper_account_id');
+        $client = new Client($this->api_key, true);
 
-        var_dump(json_encode($label));
+        $item = new Item();
+        $item->description('description')->quantity(1)->price(new Money(100, 'USD'))->weight(new Weight(10,'lb'));
+
+
+        $parcel = new Parcel();
+        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item);
+
+
+        $fromAddress = new Address();
+        $fromAddress->city('city')->company_name('company_name')->country('USA');
+        $toAddress = new Address();
+        $toAddress->city('city')->company_name('company_name')->country('USA');
+
+        $shipment = new Shipment();
+        $shipment->ship_from($fromAddress);
+        $shipment->ship_to($toAddress);
+        $shipment->parcels(array($parcel));
+
+
+        $label = new Label();
+        $label->service_type('bluedart_surface')->shipper_account('shipper_account_id')
+            ->shipment($shipment)->COD(new Money(100, 'USD'));
+
+        $response = $client->createLabel($label);
+        var_dump($response);
+
         $this->assertTrue(true);
     }
+
+
 
 }

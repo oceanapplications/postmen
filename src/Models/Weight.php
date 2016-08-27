@@ -4,8 +4,16 @@ namespace OceanApplications\Postmen\Models;
 
 class Weight extends Model
 {
-    private $unit;
-    private $value;
+    public $unit;
+    public $value;
+
+    public function __construct($value = null, $unit = null)
+    {
+        if ($value != null && $unit != null){
+            $this->value($value);
+            $this->unit($unit);
+        }
+    }
 
     /**
      * @param $value
@@ -30,10 +38,4 @@ class Weight extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

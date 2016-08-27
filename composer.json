@@ -8,6 +8,10 @@
       "email": "oceanapplications@gmail.com"
     }
   ],
+  "require-dev": {
+    "vlucas/phpdotenv": "2.3",
+    "phpunit/phpunit": "5.5.*"
+  },
   "autoload": {
     "psr-4" : {
       "OceanApplications\\Postmen\\" : "src/"

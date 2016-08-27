@@ -4,20 +4,20 @@ namespace OceanApplications\Postmen\Models;
 
 class Address extends Model
 {
-    private $country;
-    private $contact_name;
-    private $phone;
-    private $fax;
-    private $email;
-    private $company_name;
-    private $street1;
-    private $street2;
-    private $street3;
-    private $city;
-    private $state;
-    private $postal_code;
-    private $type = "residential";
-    private $tax_id;
+    public $country;
+    public $contact_name;
+    public $phone;
+    public $fax;
+    public $email;
+    public $company_name;
+    public $street1;
+    public $street2;
+    public $street3;
+    public $city;
+    public $state;
+    public $postal_code;
+    public $type = "residential";
+    public $tax_id;
 
     /**
      * @param string $value
@@ -161,10 +161,4 @@ class Address extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

@@ -3,14 +3,14 @@ namespace OceanApplications\Postmen\Models;
 
 class Item extends Model
 {
-    private $description;
-    private $quantity;
-    private $price;
-    private $weight;
-    private $item_id;
-    private $origin_country;
-    private $sku;
-    private $hs_code;
+    public $description;
+    public $quantity;
+    public $price;
+    public $weight;
+    public $item_id;
+    public $origin_country;
+    public $sku;
+    public $hs_code;
 
     /**
      * @param string $value
@@ -90,11 +90,4 @@ class Item extends Model
         return $this;
     }
 
-
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

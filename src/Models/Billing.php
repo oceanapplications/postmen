@@ -12,7 +12,7 @@ namespace OceanApplications\Postmen\Models;
 class Billing extends Model
 {
     protected $paid_by;
-    private $method;
+    public $method;
 
     /**
      * @param string $value shipper or third_party
@@ -38,10 +38,4 @@ class Billing extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

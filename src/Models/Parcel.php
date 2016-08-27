@@ -4,11 +4,11 @@ namespace OceanApplications\Postmen\Models;
 
 class Parcel extends Model
 {
-    private $box_type;
-    private $dimension;
-    private $items = array();
-    private $description;
-    private $weight;
+    public $box_type;
+    public $dimension;
+    public $items = array();
+    public $description;
+    public $weight;
 
     /**
      * @param String $value
@@ -55,10 +55,4 @@ class Parcel extends Model
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-
-        return $vars;
-    }
 }

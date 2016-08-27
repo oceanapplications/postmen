@@ -3,10 +3,18 @@
 namespace OceanApplications\Postmen\Models;
 
 
-class Money implements \JsonSerializable
+class Money extends Model
 {
-    private $amount;
-    private $currency;
+    public $amount;
+    public $currency;
+
+    public function __construct($amount=null, $currency=null)
+    {
+        if ($amount != null && $currency != null){
+            $this->amount($amount);
+            $this->currency($currency);
+        }
+    }
 
     public function amount($value){
         $this->amount = $value;
@@ -35,9 +43,4 @@ class Money implements \JsonSerializable
         return $this;
     }
 
-    public function JsonSerialize()
-    {
-        $vars = get_object_vars($this);
-        return $vars;
-    }
 }
