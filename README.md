@@ -9,7 +9,8 @@ composer require oceanapplications/postmen
 
 ###Create label
 
-`
+```php
+
 //create item
 $item = new Item();
 $item->description('description')->quantity(1)->price(new Money(100, 'INR'))->weight(new Weight(1,'lb'));
@@ -42,4 +43,5 @@ $label->service_type('bluedart_surface')->shipper_account('shipper id from postm
 //finally create client and send request
 $client = new Client('postmen api_key');
 $response = $client->createLabel($label);
-`
+
+```
