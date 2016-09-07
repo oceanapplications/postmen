@@ -26,7 +26,7 @@ class Dimension extends Model
      * @return $this
      */
     public function width($value) {
-        $this->width = $value;
+        $this->width = floatval($value);
         return $this;
     }
 
@@ -35,7 +35,7 @@ class Dimension extends Model
      * @return $this
      */
     public function height($value) {
-        $this->height = $value;
+        $this->height = floatval($value);
         return $this;
     }
 
@@ -44,7 +44,7 @@ class Dimension extends Model
      * @return $this
      */
     public function depth($value) {
-        $this->depth = $value;
+        $this->depth = floatval($value);
         return $this;
     }
 

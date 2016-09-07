@@ -15,7 +15,7 @@ class Parcel extends Model
      * @return $this
      */
     public function box_type($value) {
-        $this->box_type = $value;
+        $this->box_type = strval($value);;
         return $this;
     }
 
@@ -42,7 +42,7 @@ class Parcel extends Model
      * @return $this
      */
     public function description($value){
-        $this->description = $value;
+        $this->description = strval($value);
         return $this;
     }
 

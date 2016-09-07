@@ -17,7 +17,7 @@ class Item extends Model
      * @return $this
      */
     public function description($value){
-        $this->description = $value;
+        $this->description = strval($value);
         return $this;
     }
 
@@ -26,7 +26,7 @@ class Item extends Model
      * @return $this
      */
     public function quantity($value){
-        $this->quantity = $value;
+        $this->quantity = intval($value);
         return $this;
     }
 
@@ -53,7 +53,7 @@ class Item extends Model
      * @return $this
      */
     public function item_id($value){
-        $this->item_id = $value;
+        $this->item_id = strval($value);
         return $this;
     }
 
@@ -77,7 +77,7 @@ class Item extends Model
      * @return $this
      */
     public function sku($value){
-        $this->sku = $value;
+        $this->sku = strval($value);
         return $this;
     }
 
@@ -86,7 +86,7 @@ class Item extends Model
      * @return $this
      */
     public function hs_code($value){
-        $this->hs_code = $value;
+        $this->hs_code = strval($value);
         return $this;
     }
 

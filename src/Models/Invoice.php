@@ -20,7 +20,7 @@ class Invoice extends Model
      * @return $this
      */
     public function number($value){
-        $this->number = $value;
+        $this->number = strval($value);
         return $this;
     }
 
@@ -29,7 +29,7 @@ class Invoice extends Model
      * @return $this
      */
     public function type($value){
-        $this->type = $value;
+        $this->type = strval($value);
         return $this;
     }
 

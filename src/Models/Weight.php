@@ -34,7 +34,7 @@ class Weight extends Model
      * @return $this
      */
     public function value($value){
-        $this->value = $value;
+        $this->value = floatval($value);
         return $this;
     }
 

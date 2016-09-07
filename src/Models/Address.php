@@ -40,7 +40,7 @@ class Address extends Model
      * @return $this
      */
     public function contact_name($value){
-        $this->contact_name = $value;
+        $this->contact_name = strval($value);
         return $this;
     }
 
@@ -49,7 +49,7 @@ class Address extends Model
      * @return $this
      */
     public function phone($value){
-        $this->phone = $value;
+        $this->phone = strval($value);
         return $this;
     }
 
@@ -59,7 +59,7 @@ class Address extends Model
      * @return $this
      */
     public function fax($value){
-        $this->fax = $value;
+        $this->fax = strval($value);
         return $this;
     }
 
@@ -69,7 +69,7 @@ class Address extends Model
      * @return $this
      */
     public function email($value){
-        $this->email = $value;
+        $this->email = strval($value);
         return $this;
     }
 
@@ -79,7 +79,7 @@ class Address extends Model
      * @return $this
      */
     public function company_name($value){
-        $this->company_name = $value;
+        $this->company_name = strval($value);
         return $this;
     }
 
@@ -88,7 +88,7 @@ class Address extends Model
      * @return $this
      */
     public function street1($value){
-        $this->street1 = $value;
+        $this->street1 = strval($value);
         return $this;
     }
 
@@ -97,7 +97,7 @@ class Address extends Model
      * @return $this
      */
     public function street2($value){
-        $this->street2 = $value;
+        $this->street2 = strval($value);
         return $this;
     }
 
@@ -106,7 +106,7 @@ class Address extends Model
      * @return $this
      */
     public function street3($value){
-        $this->street3 = $value;
+        $this->street3 = strval($value);
         return $this;
     }
 
@@ -115,7 +115,7 @@ class Address extends Model
      * @return $this
      */
     public function city($value){
-        $this->city= $value;
+        $this->city= strval($value);
         return $this;
     }
 
@@ -124,7 +124,7 @@ class Address extends Model
      * @return $this
      */
     public function state($value){
-        $this->state = $value;
+        $this->state = strval($value);
         return $this;
     }
 
@@ -133,7 +133,7 @@ class Address extends Model
      * @return $this
      */
     public function postal_code($value){
-        $this->postal_code = $value;
+        $this->postal_code = strval($value);
         return $this;
     }
 
@@ -157,7 +157,7 @@ class Address extends Model
      * @return $this
      */
     public function tax_id($value){
-        $this->tax_id = $value;
+        $this->tax_id = strval($value);
         return $this;
     }
 

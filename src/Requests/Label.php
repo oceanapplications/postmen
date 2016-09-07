@@ -29,7 +29,7 @@ class Label extends Model
 
     public function __construct()
     {
-        $this->ship_date = date('Y-m-d');
+        $this->ship_date = date('Y-m-d', strtotime('tomorrow'));
     }
 
 

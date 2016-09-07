@@ -12,7 +12,7 @@ class Passport extends Model
      * @return $this
      */
     public function number($value){
-        $this->number = $value;
+        $this->number = strval($value);
         return $this;
     }
 
@@ -21,7 +21,7 @@ class Passport extends Model
      * @return $this
      */
     public function issue_date($value){
-        $this->issue_date = $value;
+        $this->issue_date = strval($value);
         return $this;
     }
 

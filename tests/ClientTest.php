@@ -34,10 +34,10 @@ class ClientTest extends TestCase {
         $client = new Client($this->api_key);
 
         $item = new Item();
-        $item->description('description')->quantity(1)->price(new Money(100, 'INR'))->weight(new Weight(1,'lb'));
+        $item->description('description')->quantity(1)->price(new Money(100, 'INR'))->weight(new Weight("1",'lb'));
 
         $parcel = new Parcel();
-        $parcel->box_type('custom')->dimension(new Dimension(4,4,4,"cm"))->items($item)->description('descr')->weight(new Weight(2, 'lb'));
+        $parcel->box_type('custom')->dimension(new Dimension("4",4,4,"cm"))->items($item)->description('descr')->weight(new Weight(2, 'lb'));
 
         $fromAddress = new Address();
         $fromAddress->city('New Delhi')->company_name('company India')->country('IND')->contact_name('Name')->street1('street1')
@@ -54,7 +54,7 @@ class ClientTest extends TestCase {
 
         $label = new Label();
         $label->service_type('bluedart_surface')->shipper_account($this->shipper_id)
-            ->shipment($shipment)->invoice(new Invoice())->COD(new Money(100, 'INR'));
+            ->shipment($shipment)->invoice(new Invoice())->COD(new Money("100", 'INR'));
 
         $response = $client->createLabel($label);
 var_dump($response);

@@ -14,7 +14,7 @@ class PaymentMethod extends Model
      * @return $this
      */
     public function account_number($value){
-        $this->account_number = $value;
+        $this->account_number = strval($value);
         return $this;
     }
 
@@ -23,7 +23,7 @@ class PaymentMethod extends Model
      * @return $this
      */
     public function postal_code($value){
-        $this->postal_code = $value;
+        $this->postal_code = strval($value);
         return $this;
     }
 

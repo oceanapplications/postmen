@@ -16,8 +16,12 @@ class Money extends Model
         }
     }
 
+    /**
+     * @param string $value
+     * @return $this
+     */
     public function amount($value){
-        $this->amount = $value;
+        $this->amount = floatval($value);
         return $this;
     }
 
