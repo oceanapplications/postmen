@@ -1,7 +1,8 @@
 {
   "name": "oceanapplications/postmen",
   "description": "API Wrapper for postmen.com",
-  "keywords": ["postmen", "shippingx"],
+  "keywords": ["postmen", "shipping", "API"],
+  "license": "GPL-3.0+",
   "authors": [
     {
       "name": "Ocean Applications",
