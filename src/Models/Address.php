@@ -97,7 +97,11 @@ class Address extends Model
      * @return $this
      */
     public function street2($value){
-        $this->street2 = strval($value);
+        if(empty($value)) {
+            $this->street2 = null;
+        }else {
+            $this->street2 = strval($value);
+        }
         return $this;
     }
 
@@ -106,7 +110,11 @@ class Address extends Model
      * @return $this
      */
     public function street3($value){
-        $this->street3 = strval($value);
+        if(empty($value)) {
+            $this->street3 = null;
+        }else {
+            $this->street3 = strval($value);
+        }
         return $this;
     }
 
