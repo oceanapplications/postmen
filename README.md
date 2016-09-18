@@ -1,4 +1,6 @@
 # Postmen
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/oceanapplications/postmen/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/oceanapplications/postmen/)
+
 API wrapper for https://www.postmen.com/
 
 ###Install with composer
