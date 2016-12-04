@@ -1,4 +1,5 @@
 <?php
+
 namespace OceanApplications\Postmen\Models;
 
 class Item extends Model
@@ -14,80 +15,104 @@ class Item extends Model
 
     /**
      * @param string $value
+     *
      * @return $this
      */
-    public function description($value){
+    public function description($value)
+    {
         $this->description = strval($value);
+
         return $this;
     }
 
     /**
-     * @param integer $value
+     * @param int $value
+     *
      * @return $this
      */
-    public function quantity($value){
+    public function quantity($value)
+    {
         $this->quantity = intval($value);
+
         return $this;
     }
 
     /**
      * @param Money $price
+     *
      * @return $this
      */
-    public function price(Money $price){
+    public function price(Money $price)
+    {
         $this->price = $price;
+
         return $this;
     }
 
     /**
      * @param Weight $weight
+     *
      * @return $this
      */
-    public function weight(Weight $weight){
+    public function weight(Weight $weight)
+    {
         $this->weight = $weight;
+
         return $this;
     }
 
     /**
      * @param string $value
+     *
      * @return $this
      */
-    public function item_id($value){
+    public function item_id($value)
+    {
         $this->item_id = strval($value);
+
         return $this;
     }
 
     /**
      * @param $value
-     * @return $this
+     *
      * @throws \Exception
+     *
+     * @return $this
      */
-    public function origin_country($value){
-       if (in_array($value, $this->acceptedCountries)) {
+    public function origin_country($value)
+    {
+        if (in_array($value, $this->acceptedCountries)) {
             $this->origin_country = $value;
         } else {
-            $error = "Country code invalid or not serviceable";
+            $error = 'Country code invalid or not serviceable';
             throw new \Exception($error);
         }
+
         return $this;
     }
 
     /**
      * @param $value
+     *
      * @return $this
      */
-    public function sku($value){
+    public function sku($value)
+    {
         $this->sku = strval($value);
+
         return $this;
     }
 
     /**
      * @param $value
+     *
      * @return $this
      */
-    public function hs_code($value){
+    public function hs_code($value)
+    {
         $this->hs_code = strval($value);
+
         return $this;
     }
-
 }
