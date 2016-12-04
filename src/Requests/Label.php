@@ -2,7 +2,6 @@
 
 namespace OceanApplications\Postmen\Requests;
 
-
 use OceanApplications\Postmen\Models\Billing;
 use OceanApplications\Postmen\Models\Customs;
 use OceanApplications\Postmen\Models\Invoice;
@@ -12,8 +11,7 @@ use OceanApplications\Postmen\Models\Shipment;
 
 class Label extends Model
 {
-
-    public $paper_size = "default";
+    public $paper_size = 'default';
     public $service_type;
     public $is_document = false;
     public $shipper_account;
@@ -32,43 +30,49 @@ class Label extends Model
         $this->ship_date = date('Y-m-d', strtotime('tomorrow'));
     }
 
-
     /**
      * @param string $size
+     *
      * @return $this
      */
-    public function paper_size($size="default")
+    public function paper_size($size = 'default')
     {
         $this->paper_size = $size;
+
         return $this;
     }
 
     /**
      * @param $service
+     *
      * @return $this
      */
     public function service_type($service)
     {
         $this->service_type = $service;
+
         return $this;
     }
 
     /**
      * @param bool $value
+     *
      * @return $this
      */
-    public function is_document($value=true)
+    public function is_document($value = true)
     {
         if ($value == true) {
             $$this->is_document = true;
-        } else if ($value == false) {
+        } elseif ($value == false) {
             $this->is_document = false;
         }
+
         return $this;
     }
 
     /**
      * @param $id
+     *
      * @return $this
      */
     public function shipper_account($id)
@@ -76,103 +80,124 @@ class Label extends Model
         $shipper_account = new \stdClass();
         $shipper_account->id = $id;
         $this->shipper_account = $shipper_account;
+
         return $this;
     }
 
     /**
      * @param Shipment $shipment
+     *
      * @return $this
      */
     public function shipment(Shipment $shipment)
     {
         $this->shipment = $shipment;
+
         return $this;
     }
 
     /**
      * @param bool $value
+     *
      * @return $this
      */
     public function async($value = true)
     {
         if ($value == true) {
             $$this->async = true;
-        } else if ($value == false) {
+        } elseif ($value == false) {
             $this->async = false;
         }
+
         return $this;
     }
 
     /**
      * @param bool $value
+     *
      * @return $this
      */
-    public function return_shipment($value=true)
+    public function return_shipment($value = true)
     {
         if ($value == true) {
             $$this->return_shipment = true;
-        } else if ($value == false) {
+        } elseif ($value == false) {
             $this->return_shipment = false;
         }
+
         return $this;
     }
 
     /**
      * @param $value YYYY-MM-DD formatted date
+     *
      * @return $this
      */
     public function ship_date($value)
     {
         $this->ship_date = $value;
+
         return $this;
     }
 
     /**
      * @param Money $money
+     *
      * @return $this
      */
     public function COD(Money $money)
     {
-        if ($this->service_options == null){
-            $this->service_options = array();
+        if ($this->service_options == null) {
+            $this->service_options = [];
         }
         $option = new \stdClass();
-        $option->type = "cod";
+        $option->type = 'cod';
         $option->cod_value = $money;
         array_push($this->service_options, $option);
+
         return $this;
     }
 
     /**
      * @param Invoice $invoice
+     *
      * @return $this
      */
-    public function invoice(Invoice $invoice){
+    public function invoice(Invoice $invoice)
+    {
         $this->invoice = $invoice;
+
         return $this;
     }
 
     /**
      * @param array $references
+     *
      * @return $this
      */
-    public function references(array $references){
+    public function references(array $references)
+    {
         $this->references = $references;
+
         return $this;
     }
 
-    public function billing(Billing $billing){
+    public function billing(Billing $billing)
+    {
         $this->billing = $billing;
+
         return $this;
     }
 
     /**
      * @param Customs $customs
+     *
      * @return $this
      */
-    public function customs(Customs $customs){
+    public function customs(Customs $customs)
+    {
         $this->customs = $customs;
+
         return $this;
     }
-    
 }

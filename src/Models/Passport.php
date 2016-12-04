@@ -1,6 +1,6 @@
 <?php
-namespace OceanApplications\Postmen\Models;
 
+namespace OceanApplications\Postmen\Models;
 
 class Passport extends Model
 {
@@ -9,20 +9,25 @@ class Passport extends Model
 
     /**
      * @param string $value
+     *
      * @return $this
      */
-    public function number($value){
+    public function number($value)
+    {
         $this->number = strval($value);
+
         return $this;
     }
 
     /**
      * @param string $value
+     *
      * @return $this
      */
-    public function issue_date($value){
+    public function issue_date($value)
+    {
         $this->issue_date = strval($value);
+
         return $this;
     }
-
 }
